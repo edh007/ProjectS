@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "wild_strike"
+card_name = "Wild Strike"
+description = "Deal 12 damage. Shuffle a Wound into your draw pile."
+cost = 1
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 12,
+"add_wound_to_draw": true
+}
+playable = true

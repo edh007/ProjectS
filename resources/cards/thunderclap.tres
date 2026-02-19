@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "thunderclap"
+card_name = "Thunderclap"
+description = "Deal 4 damage to ALL enemies. Apply 1 Vulnerable."
+cost = 1
+card_type = 0
+target_type = 1
+effect_params = {
+"damage": 4,
+"apply_vulnerable": 1
+}
+playable = true

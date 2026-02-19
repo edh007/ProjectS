@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "clothesline"
+card_name = "Clothesline"
+description = "Deal 14 damage. Apply 2 Weak."
+cost = 2
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 14,
+"apply_weak": 2
+}
+playable = true

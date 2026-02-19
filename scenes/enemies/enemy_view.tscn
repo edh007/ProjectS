@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/enemy_view.gd" id="1_ev"]
+
+[node name="EnemyView" type="VBoxContainer"]
+custom_minimum_size = Vector2(120, 200)
+script = ExtResource("1_ev")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Enemy"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+
+[node name="EnemySprite" type="ColorRect" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 100)
+color = Color(0.6, 0.2, 0.2, 1)
+
+[node name="HPLabel" type="Label" parent="."]
+layout_mode = 2
+text = "HP: 50 / 50"
+horizontal_alignment = 1
+
+[node name="BlockLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Block: 0"
+horizontal_alignment = 1
+
+[node name="IntentLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Intent: ?"
+horizontal_alignment = 1

@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "pommel_strike"
+card_name = "Pommel Strike"
+description = "Deal 9 damage. Draw 1 card."
+cost = 1
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 9,
+"draw": 1
+}
+playable = true

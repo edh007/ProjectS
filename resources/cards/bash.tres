@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "bash"
+card_name = "Bash"
+description = "Deal 8 damage. Apply 2 Vulnerable."
+cost = 2
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 8,
+"apply_vulnerable": 2
+}
+playable = true

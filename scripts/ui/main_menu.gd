@@ -12,8 +12,7 @@ func _ready() -> void:
 
 
 func _on_play_pressed() -> void:
-	GameState.change_state(GameState.State.GAME)
-	get_tree().change_scene_to_file("res://scenes/game/game.tscn")
+	RunManager.start_run()
 
 
 func _on_quit_pressed() -> void:

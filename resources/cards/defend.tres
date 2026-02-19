@@ -1,0 +1,13 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "defend"
+card_name = "Defend"
+description = "Gain 5 Block."
+cost = 1
+card_type = 1
+target_type = 2
+effect_params = {
+"block": 5
+}
+playable = true

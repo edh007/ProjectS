@@ -1,0 +1,24 @@
+[gd_resource type="EnemyData" format=3]
+
+[sub_resource type="EnemyMove" id="EnemyMove_1"]
+move_name = "Incantation"
+move_type = 2
+move_params = {
+"strength": 3
+}
+intent_icon = "buff"
+
+[sub_resource type="EnemyMove" id="EnemyMove_2"]
+move_name = "Dark Strike"
+move_type = 0
+move_params = {
+"damage": 6
+}
+intent_icon = "attack"
+
+[resource]
+id = "cultist"
+enemy_name = "Cultist"
+max_hp = 50
+move_pattern = [SubResource("EnemyMove_1"), SubResource("EnemyMove_2")]
+first_move_index = 0

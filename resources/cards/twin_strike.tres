@@ -1,0 +1,14 @@
+[gd_resource type="CardData" format=3]
+
+[resource]
+id = "twin_strike"
+card_name = "Twin Strike"
+description = "Deal 5 damage twice."
+cost = 1
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 5,
+"hits": 2
+}
+playable = true

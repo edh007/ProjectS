@@ -1,0 +1,34 @@
+[gd_resource type="EnemyData" format=3]
+
+[sub_resource type="EnemyMove" id="EnemyMove_1"]
+move_name = "Chomp"
+move_type = 0
+move_params = {
+"damage": 11
+}
+intent_icon = "attack"
+
+[sub_resource type="EnemyMove" id="EnemyMove_2"]
+move_name = "Thrash"
+move_type = 0
+move_params = {
+"damage": 7,
+"block": 5
+}
+intent_icon = "attack"
+
+[sub_resource type="EnemyMove" id="EnemyMove_3"]
+move_name = "Bellow"
+move_type = 2
+move_params = {
+"strength": 3,
+"block": 6
+}
+intent_icon = "buff"
+
+[resource]
+id = "jaw_worm"
+enemy_name = "Jaw Worm"
+max_hp = 42
+move_pattern = [SubResource("EnemyMove_1"), SubResource("EnemyMove_2"), SubResource("EnemyMove_3")]
+first_move_index = -1

@@ -20,6 +20,7 @@ config/icon="res://assets/images/ui/icon.png"
 
 GameState="*res://autoloads/game_state.gd"
 CardDatabase="*res://autoloads/card_database.gd"
+RunManager="*res://scripts/run/run_manager.gd"
 
 [rendering]
 
