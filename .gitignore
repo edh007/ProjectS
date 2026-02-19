@@ -52,3 +52,6 @@ Desktop.ini # Windows
 $RECYCLE.BIN/ # Windows
 ~ # Linux
 .nfs # Linux
+
+# Claude Code local settings
+.claude/
