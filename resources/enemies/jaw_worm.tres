@@ -1,6 +1,10 @@
-[gd_resource type="EnemyData" format=3]
+[gd_resource type="Resource" script_class="EnemyData" format=3]
 
-[sub_resource type="EnemyMove" id="EnemyMove_1"]
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="1_ed"]
+[ext_resource type="Script" path="res://resources/enemy_move.gd" id="2_em"]
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_1"]
+script = ExtResource("2_em")
 move_name = "Chomp"
 move_type = 0
 move_params = {
@@ -8,7 +12,8 @@ move_params = {
 }
 intent_icon = "attack"
 
-[sub_resource type="EnemyMove" id="EnemyMove_2"]
+[sub_resource type="Resource" script_class="EnemyMove" id="move_2"]
+script = ExtResource("2_em")
 move_name = "Thrash"
 move_type = 0
 move_params = {
@@ -17,7 +22,8 @@ move_params = {
 }
 intent_icon = "attack"
 
-[sub_resource type="EnemyMove" id="EnemyMove_3"]
+[sub_resource type="Resource" script_class="EnemyMove" id="move_3"]
+script = ExtResource("2_em")
 move_name = "Bellow"
 move_type = 2
 move_params = {
@@ -27,8 +33,9 @@ move_params = {
 intent_icon = "buff"
 
 [resource]
+script = ExtResource("1_ed")
 id = "jaw_worm"
 enemy_name = "Jaw Worm"
 max_hp = 42
-move_pattern = [SubResource("EnemyMove_1"), SubResource("EnemyMove_2"), SubResource("EnemyMove_3")]
+move_pattern = [SubResource("move_1"), SubResource("move_2"), SubResource("move_3")]
 first_move_index = -1

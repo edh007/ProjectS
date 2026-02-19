@@ -1,6 +1,10 @@
-[gd_resource type="EnemyData" format=3]
+[gd_resource type="Resource" script_class="EnemyData" format=3]
 
-[sub_resource type="EnemyMove" id="EnemyMove_1"]
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="1_ed"]
+[ext_resource type="Script" path="res://resources/enemy_move.gd" id="2_em"]
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_1"]
+script = ExtResource("2_em")
 move_name = "Slam"
 move_type = 0
 move_params = {
@@ -9,15 +13,17 @@ move_params = {
 }
 intent_icon = "attack"
 
-[sub_resource type="EnemyMove" id="EnemyMove_2"]
+[sub_resource type="Resource" script_class="EnemyMove" id="move_2"]
+script = ExtResource("2_em")
 move_name = "Preparing"
 move_type = 3
 move_params = {}
 intent_icon = "unknown"
 
 [resource]
+script = ExtResource("1_ed")
 id = "slime_boss"
 enemy_name = "Slime Boss"
 max_hp = 140
-move_pattern = [SubResource("EnemyMove_1"), SubResource("EnemyMove_2")]
+move_pattern = [SubResource("move_1"), SubResource("move_2")]
 first_move_index = -1
