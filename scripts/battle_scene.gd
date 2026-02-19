@@ -31,7 +31,7 @@ func _setup_player() -> void:
 
 func _setup_enemies() -> void:
 	var enemy_id := RunManager.current_enemy_id
-	var enemy_data: EnemyData = load("res://resources/enemies/%s.tres" % enemy_id)
+	var enemy_data := load("res://resources/enemies/%s.tres" % enemy_id) as EnemyData
 	if enemy_data == null:
 		push_error("EnemyData not found: " + enemy_id)
 		return
@@ -62,6 +62,7 @@ func _on_card_played(card_data: CardData) -> void:
 			target = e
 			break
 	_combat_manager.on_card_played(card_data, target)
+	_hand_area.remove_card(card_data)
 	_refresh_hand_playability()
 
 

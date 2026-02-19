@@ -92,6 +92,9 @@ static func apply_enemy_move(
 				for _i in hits:
 					var dmg := calculate_damage(p["damage"], enemy, player)
 					player.take_damage(dmg)
+			# 일부 공격 행동은 블록도 획득한다 (예: Jaw Worm Thrash)
+			if p.has("block"):
+				enemy.add_block(p["block"])
 
 		EnemyMove.MoveType.DEFEND:
 			if p.has("block"):
