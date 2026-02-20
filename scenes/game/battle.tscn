@@ -24,7 +24,7 @@ position = Vector2(20, 80)
 size = Vector2(160, 120)
 
 [node name="HandArea" type="Node2D" parent="."]
-position = Vector2(576, 580)
+position = Vector2(576, 448)
 script = ExtResource("2_ch")
 card_scene = ExtResource("5_card")
 

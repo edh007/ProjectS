@@ -30,9 +30,9 @@ var reward_choices: Array[CardData] = []
 
 func start_run() -> void:
 	current_room = 0
-	_init_player_deck()
 	GameState.reset()
 	GameState.player_hp = GameState.player_max_hp
+	_init_player_deck()
 	_go_to_room(0)
 
 
