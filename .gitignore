@@ -54,4 +54,4 @@ $RECYCLE.BIN/ # Windows
 .nfs # Linux
 
 # Claude Code local settings
-.claude/
+.claude/bin/*.so\nbin/*.dll\nbuild/\ngodot_extension/build/
