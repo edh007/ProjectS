@@ -1,16 +1,16 @@
 extends Node2D
 
 ## 전투 씬 진입점
-## CombatManager, PlayerCombatant, EnemyCombatant, UI를 연결한다.
+## GDCombatManager, GDPlayerCombatant, GDEnemyCombatant, UI를 연결한다.
 
 @onready var _enemy_area: HBoxContainer = $EnemyArea
 @onready var _hand_area: CardHand = $HandArea
 @onready var _hud: BattleHUD = $BattleHUD
-@onready var _combat_manager: CombatManager = $CombatManager
+@onready var _combat_manager: GDCombatManager = $CombatManager
 @onready var _log_label: Label = $LogLabel
 
-var _player: PlayerCombatant = PlayerCombatant.new()
-var _enemies: Array[EnemyCombatant] = []
+var _player: GDPlayerCombatant = GDPlayerCombatant.new()
+var _enemies: Array = []  # Array of GDEnemyCombatant
 
 const EnemyViewScene := preload("res://scenes/enemies/enemy_view.tscn")
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 	_setup_player()
 	_setup_enemies()
 	_connect_signals()
-	_combat_manager.start_combat(_player, _enemies, _hand_area)
+	_combat_manager.start_combat(_player, _enemies)
 
 
 func _setup_player() -> void:
@@ -31,12 +31,12 @@ func _setup_player() -> void:
 
 func _setup_enemies() -> void:
 	var enemy_id := RunManager.current_enemy_id
-	var enemy_data := load("res://resources/enemies/%s.tres" % enemy_id) as EnemyData
+	var enemy_data: Resource = load("res://resources/enemies/%s.tres" % enemy_id)
 	if enemy_data == null:
 		push_error("EnemyData not found: " + enemy_id)
 		return
 
-	var enemy := EnemyCombatant.new()
+	var enemy := GDEnemyCombatant.new()
 	enemy.setup_from_data(enemy_data)
 	_enemies.append(enemy)
 
@@ -55,8 +55,8 @@ func _connect_signals() -> void:
 
 
 func _on_card_played(card_data: CardData) -> void:
-	# 단일 타겟: 적이 한 명이면 자동 선택
-	var target: EnemyCombatant = null
+	# 단일 타겟: 살아있는 첫 번째 적 자동 선택
+	var target = null
 	for e in _enemies:
 		if e.is_alive():
 			target = e
@@ -68,7 +68,6 @@ func _on_card_played(card_data: CardData) -> void:
 
 func _on_turn_changed(turn: String) -> void:
 	if turn == "player":
-		# 손패 갱신 (새 카드 드로우 후)
 		_rebuild_hand()
 		_refresh_hand_playability()
 
@@ -84,7 +83,6 @@ func _refresh_hand_playability() -> void:
 
 
 func _on_combat_ended(result: String) -> void:
-	# HP 유지
 	GameState.player_hp = _player.current_hp
 	await get_tree().create_timer(1.5).timeout
 	RunManager.complete_combat(result)

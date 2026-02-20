@@ -18,7 +18,7 @@ func _ready() -> void:
 	_end_turn_button.pressed.connect(func(): end_turn_pressed.emit())
 
 
-func bind_player(player: PlayerCombatant) -> void:
+func bind_player(player: Object) -> void:
 	player.energy_changed.connect(_update_energy)
 	player.hp_changed.connect(_update_hp)
 	player.block_changed.connect(_update_block)
