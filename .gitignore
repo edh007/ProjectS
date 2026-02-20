@@ -9,3 +9,49 @@
 .mono/
 data_*/
 mono_crash.*.json
+
+
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+*.tmp
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores (for C# projects)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Test results
+test_results/
+
+# Downloaded binaries and build artifacts
+Godot_*.zip
+*.exe
+*.dmg
+*.clonedump
+
+# OS-specific ignores (optional, often added by IDEs or OS)
+.DS_Store # macOS
+.AppleDouble # macOS
+.LSOverride # macOS
+Icon
+._* # macOS
+.Spotlight-V100 # macOS
+.Trashes # macOS
+Thumbs.db # Windows
+ehthumbs.db # Windows
+Desktop.ini # Windows
+$RECYCLE.BIN/ # Windows
+~ # Linux
+.nfs # Linux
+
+# Claude Code local settings
+.claude/

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3]
+
+[ext_resource type="Script" path="res://resources/card_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "shrug_it_off"
+card_name = "Shrug It Off"
+description = "Gain 8 Block. Draw 1 card."
+cost = 1
+card_type = 1
+target_type = 2
+effect_params = {
+"block": 8,
+"draw": 1
+}
+playable = true

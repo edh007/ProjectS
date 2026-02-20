@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3]
+
+[ext_resource type="Script" path="res://resources/card_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "strike"
+card_name = "Strike"
+description = "Deal 6 damage."
+cost = 1
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 6
+}
+playable = true

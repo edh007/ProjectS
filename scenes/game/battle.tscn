@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/battle_scene.gd" id="1_bs"]
+[ext_resource type="Script" path="res://scripts/card_hand.gd" id="2_ch"]
+[ext_resource type="Script" path="res://scripts/ui/battle_hud.gd" id="3_hud"]
+[ext_resource type="Script" path="res://scripts/combat/combat_manager.gd" id="4_cm"]
+[ext_resource type="PackedScene" path="res://scenes/cards/card.tscn" id="5_card"]
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1_bs")
+
+[node name="Background" type="ColorRect" parent="."]
+position = Vector2(0, 0)
+size = Vector2(1152, 648)
+color = Color(0.08, 0.08, 0.12, 1)
+
+[node name="EnemyArea" type="HBoxContainer" parent="."]
+position = Vector2(400, 80)
+size = Vector2(400, 220)
+alignment = 1
+
+[node name="PlayerStatusPanel" type="VBoxContainer" parent="."]
+position = Vector2(20, 80)
+size = Vector2(160, 120)
+
+[node name="HandArea" type="Node2D" parent="."]
+position = Vector2(576, 448)
+script = ExtResource("2_ch")
+card_scene = ExtResource("5_card")
+
+[node name="LogLabel" type="Label" parent="."]
+position = Vector2(20, 580)
+size = Vector2(300, 30)
+text = ""
+
+[node name="BattleHUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_hud")
+
+[node name="HUDContainer" type="HBoxContainer" parent="BattleHUD"]
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 1152.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="EnergyLabel" type="Label" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+text = "Energy: 3 / 3"
+size_flags_horizontal = 3
+
+[node name="PlayerStatus" type="HBoxContainer" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HPLabel" type="Label" parent="BattleHUD/HUDContainer/PlayerStatus"]
+layout_mode = 2
+text = "HP: 80 / 80"
+
+[node name="BlockLabel" type="Label" parent="BattleHUD/HUDContainer/PlayerStatus"]
+layout_mode = 2
+text = "Block: 0"
+
+[node name="DrawPileButton" type="Button" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+text = "Draw: 0"
+
+[node name="DiscardPileButton" type="Button" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+text = "Disc: 0"
+
+[node name="TurnLabel" type="Label" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+text = "Your Turn"
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="EndTurnButton" type="Button" parent="BattleHUD/HUDContainer"]
+layout_mode = 2
+text = "End Turn"
+
+[node name="CombatManager" type="Node" parent="."]
+script = ExtResource("4_cm")

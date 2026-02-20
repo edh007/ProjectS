@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3]
+
+[ext_resource type="Script" path="res://resources/card_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "bash"
+card_name = "Bash"
+description = "Deal 8 damage. Apply 2 Vulnerable."
+cost = 2
+card_type = 0
+target_type = 0
+effect_params = {
+"damage": 8,
+"apply_vulnerable": 2
+}
+playable = true

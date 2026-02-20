@@ -15,7 +15,9 @@ func get_card(card_id: String) -> CardData:
 
 
 func get_all_cards() -> Array[CardData]:
-	return _cards.values()
+	var result: Array[CardData] = []
+	result.assign(_cards.values())
+	return result
 
 
 func _load_cards() -> void:
@@ -27,7 +29,7 @@ func _load_cards() -> void:
 	var file_name := dir.get_next()
 	while file_name != "":
 		if file_name.ends_with(".tres"):
-			var card: CardData = load("res://resources/cards/" + file_name)
+			var card := load("res://resources/cards/" + file_name) as CardData
 			if card != null:
 				_cards[card.id] = card
 		file_name = dir.get_next()

@@ -7,12 +7,20 @@ signal state_changed(new_state: State)
 
 enum State {
 	MAIN_MENU,
-	GAME,
+	COMBAT,
+	REWARD,
+	BOSS,
 	GAME_OVER,
+	VICTORY,
 }
 
 var current_state: State = State.MAIN_MENU
 var player_score: int = 0
+
+## 런 중 플레이어 덱 (RunManager가 관리)
+var player_deck: Array[CardData] = []
+var player_hp: int = 80
+var player_max_hp: int = 80
 
 
 func change_state(new_state: State) -> void:
@@ -22,4 +30,7 @@ func change_state(new_state: State) -> void:
 
 func reset() -> void:
 	player_score = 0
+	player_hp = 80
+	player_max_hp = 80
+	player_deck.clear()
 	change_state(State.MAIN_MENU)

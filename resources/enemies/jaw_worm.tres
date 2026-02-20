@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3]
+
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="1_ed"]
+[ext_resource type="Script" path="res://resources/enemy_move.gd" id="2_em"]
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_1"]
+script = ExtResource("2_em")
+move_name = "Chomp"
+move_type = 0
+move_params = {
+"damage": 11
+}
+intent_icon = "attack"
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_2"]
+script = ExtResource("2_em")
+move_name = "Thrash"
+move_type = 0
+move_params = {
+"damage": 7,
+"block": 5
+}
+intent_icon = "attack"
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_3"]
+script = ExtResource("2_em")
+move_name = "Bellow"
+move_type = 2
+move_params = {
+"strength": 3,
+"block": 6
+}
+intent_icon = "buff"
+
+[resource]
+script = ExtResource("1_ed")
+id = "jaw_worm"
+enemy_name = "Jaw Worm"
+max_hp = 42
+move_pattern = [SubResource("move_1"), SubResource("move_2"), SubResource("move_3")]
+first_move_index = -1

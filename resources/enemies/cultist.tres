@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3]
+
+[ext_resource type="Script" path="res://resources/enemy_data.gd" id="1_ed"]
+[ext_resource type="Script" path="res://resources/enemy_move.gd" id="2_em"]
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_1"]
+script = ExtResource("2_em")
+move_name = "Incantation"
+move_type = 2
+move_params = {
+"strength": 3
+}
+intent_icon = "buff"
+
+[sub_resource type="Resource" script_class="EnemyMove" id="move_2"]
+script = ExtResource("2_em")
+move_name = "Dark Strike"
+move_type = 0
+move_params = {
+"damage": 6
+}
+intent_icon = "attack"
+
+[resource]
+script = ExtResource("1_ed")
+id = "cultist"
+enemy_name = "Cultist"
+max_hp = 50
+move_pattern = [SubResource("move_1"), SubResource("move_2")]
+first_move_index = 0
