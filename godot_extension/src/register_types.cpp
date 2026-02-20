@@ -1,25 +1,25 @@
 #include "register_types.h"
-
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
-// Phase 3에서 각 클래스 등록 추가 예정
-// #include "gd_combat_manager.h"
-// ...
+#include "gd_card_database.h"
+#include "gd_player_combatant.h"
+#include "gd_enemy_combatant.h"
+#include "gd_combat_manager.h"
 
 using namespace godot;
 
 void initialize_game_module(ModuleInitializationLevel p_level) {
-    if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
-        return;
-    }
-    // ClassDB::register_class<GDCombatManager>();
+    if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) return;
+
+    ClassDB::register_class<GDCardDatabase>();
+    ClassDB::register_class<GDPlayerCombatant>();
+    ClassDB::register_class<GDEnemyCombatant>();
+    ClassDB::register_class<GDCombatManager>();
 }
 
 void uninitialize_game_module(ModuleInitializationLevel p_level) {
-    if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
-        return;
-    }
+    if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) return;
 }
 
 extern "C" {

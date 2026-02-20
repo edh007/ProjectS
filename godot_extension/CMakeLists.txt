@@ -8,20 +8,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(GODOT_CPP_SYSTEM_HEADERS ON CACHE BOOL "" FORCE)
 add_subdirectory(godot-cpp)
 
-# C++ Core (Phase 1~2에서 채워진다)
+# C++ Core (Phase 1~2)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../core ${CMAKE_BINARY_DIR}/core)
 
-# GDExtension 공유 라이브러리
-# Phase 3에서 gd_*.cpp 파일을 하나씩 추가한다
+# GDExtension 공유 라이브러리 (Phase 3)
 add_library(game_gdextension SHARED
     src/register_types.cpp
-    # Phase 3:
-    # src/gd_card_data.cpp
-    # src/gd_combatant.cpp
-    # src/gd_player_combatant.cpp
-    # src/gd_enemy_combatant.cpp
-    # src/gd_combat_manager.cpp
-    # src/gd_card_database.cpp
+    src/gd_card_database.cpp
+    src/gd_player_combatant.cpp
+    src/gd_enemy_combatant.cpp
+    src/gd_combat_manager.cpp
 )
 
 target_include_directories(game_gdextension PRIVATE
