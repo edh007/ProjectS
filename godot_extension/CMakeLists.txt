@@ -8,6 +8,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(GODOT_CPP_SYSTEM_HEADERS ON CACHE BOOL "" FORCE)
 add_subdirectory(godot-cpp)
 
+# MinGW 크로스 컴파일 픽스:
+# godot-cpp의 windows_generate()가 PUBLIC으로 --no-undefined를 추가한다.
+# GDExtension DLL은 Godot 런타임이 gdextension_interface_* 심볼을 제공하므로
+# 링크 타임 undefined가 정상이다. --no-undefined 없이 static 링크만 유지한다.
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows" AND NOT MSVC)
+    set_property(TARGET godot-cpp PROPERTY INTERFACE_LINK_OPTIONS
+        -static
+        -static-libgcc
+        -static-libstdc++
+    )
+endif()
+
 # C++ Core (Phase 1~2)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../core ${CMAKE_BINARY_DIR}/core)
 
@@ -33,6 +45,7 @@ set_target_properties(game_gdextension PROPERTIES
     PREFIX ""
     OUTPUT_NAME "game_gdextension"
 )
+
 
 # 빌드 결과물을 Godot bin/ 디렉터리로 복사
 set(GODOT_PROJECT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
