@@ -8,13 +8,13 @@ namespace godot {
 
 void GDCombatManager::_connect_callbacks() {
     _core.on_combat_ended = [this](const std::string& result) {
-        emit_signal("combat_ended", String(result.c_str()));
+        emit_signal("combat_ended", String::utf8(result.c_str()));
     };
     _core.on_turn_changed = [this](const std::string& turn) {
-        emit_signal("turn_changed", String(turn.c_str()));
+        emit_signal("turn_changed", String::utf8(turn.c_str()));
     };
     _core.on_log_message = [this](const std::string& msg) {
-        emit_signal("log_message", String(msg.c_str()));
+        emit_signal("log_message", String::utf8(msg.c_str()));
     };
 }
 

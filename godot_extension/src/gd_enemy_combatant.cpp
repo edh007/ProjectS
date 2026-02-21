@@ -65,7 +65,7 @@ Dictionary GDEnemyCombatant::get_current_move() const {
     return _move_to_dict(_core.get_current_move());
 }
 
-String GDEnemyCombatant::get_display_name() const { return String(_core.display_name.c_str()); }
+String GDEnemyCombatant::get_display_name() const { return String::utf8(_core.display_name.c_str()); }
 int    GDEnemyCombatant::get_current_hp()   const { return _core.current_hp; }
 int    GDEnemyCombatant::get_max_hp()       const { return _core.max_hp; }
 int    GDEnemyCombatant::get_block()        const { return _core.block; }
@@ -82,8 +82,8 @@ Dictionary GDEnemyCombatant::_move_to_dict(const EnemyMove* move) {
         d["apply_poison"]   = 0;
         return d;
     }
-    d["intent_icon"]   = String(move->intent_icon.c_str());
-    d["move_name"]     = String(move->move_name.c_str());
+    d["intent_icon"]   = String::utf8(move->intent_icon.c_str());
+    d["move_name"]     = String::utf8(move->move_name.c_str());
     d["damage"]        = move->params.damage;
     d["hits"]          = move->params.hits;
     d["block"]         = move->params.block;

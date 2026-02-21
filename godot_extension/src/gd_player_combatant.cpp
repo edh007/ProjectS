@@ -98,7 +98,7 @@ Array GDPlayerCombatant::get_hand() const {
 int GDPlayerCombatant::draw_pile_count()    const { return _core.draw_pile_count(); }
 int GDPlayerCombatant::discard_pile_count() const { return _core.discard_pile_count(); }
 
-String GDPlayerCombatant::get_display_name()   const { return String(_core.display_name.c_str()); }
+String GDPlayerCombatant::get_display_name()   const { return String::utf8(_core.display_name.c_str()); }
 int    GDPlayerCombatant::get_current_hp()     const { return _core.current_hp; }
 void   GDPlayerCombatant::set_current_hp(int hp)     { _core.current_hp = hp; }
 int    GDPlayerCombatant::get_max_hp()         const { return _core.max_hp; }
