@@ -20,3 +20,12 @@ set(CORE_SOURCES
 add_library(game_core STATIC ${CORE_SOURCES})
 
 target_include_directories(game_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# MinGW 크로스 컴파일: 한국어 문자열 리터럴을 UTF-8로 강제 인코딩
+# (기본 execution charset이 CP1252일 수 있어 한글이 깨짐)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows" AND NOT MSVC)
+    target_compile_options(game_core PRIVATE
+        -finput-charset=UTF-8
+        -fexec-charset=UTF-8
+    )
+endif()
